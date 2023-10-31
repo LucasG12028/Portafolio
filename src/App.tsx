@@ -1,26 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+  import React from 'react';
+  import { Box } from '@chakra-ui/react';
+  import { Route, Routes } from 'react-router-dom';
+  import NavBar from './components/NavBar/NavBar';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
-}
+  // Importa los componentes diferidos
+  import AboutMe from './components/AboutMe/AboutMe';
+  import Technologies from './components/Technologies/Techonologies';
+  import Portfolio from './components/Portfolio/Portfolio';
+  import ContactMe from './components/ContactMe/ContactMe';
+  import Init from './components/Init/Init';
 
-export default App;
+  function App() {
+    return (
+      <Box bg='black' h='100vh'>
+        <NavBar />
+        <Routes>
+          <Route path="/about" element={<AboutMe />} />
+          <Route path="/technologies" element={<Technologies />} />
+          <Route path="/portfolio" element={<Portfolio />} />
+          <Route path="/contact" element={<ContactMe />} />
+          <Route path="/init" element={<Init />} />
+        </Routes>
+      </Box>
+    );
+  }
+
+  export default App;
